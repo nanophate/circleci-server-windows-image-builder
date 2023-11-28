@@ -45,6 +45,8 @@ builders:
       circle_job_name: '{{ user "circle_job_name" }}'
       circle_sha: '{{ user "circle_sha" }}'
       monorepo_content_sha: '{{ user "monorepo_content_sha" }}'
+      team: 'custeng-support'
+      owner: 'naoya@circleci.com'
     run_tags:
       circle_build_url: '{{ user "circle_build_url" }}'
     run_volume_tags:
