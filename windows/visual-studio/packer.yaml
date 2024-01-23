@@ -45,8 +45,14 @@ builders:
       circle_job_name: '{{ user "circle_job_name" }}'
       circle_sha: '{{ user "circle_sha" }}'
       monorepo_content_sha: '{{ user "monorepo_content_sha" }}'
-      team: 'custeng-support'
+      team: 'customer_engineering'
       owner: 'naoya@circleci.com'
+      cost_center: 'sm'
+      asset_criticality: false
+      data_classification: 'low'
+      critical_until: '2024-06-30'
+      opt_in: false
+      iac: true
     run_tags:
       circle_build_url: '{{ user "circle_build_url" }}'
     run_volume_tags:
