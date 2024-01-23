@@ -55,9 +55,25 @@ builders:
       iac: true
     run_tags:
       circle_build_url: '{{ user "circle_build_url" }}'
+      team: 'customer_engineering'
+      owner: 'naoya@circleci.com'
+      cost_center: 'sm'
+      asset_criticality: false
+      data_classification: 'low'
+      critical_until: '2024-06-30'
+      opt_in: false
+      iac: true
     run_volume_tags:
       circle_build_url: '{{ user "circle_build_url" }}'
-
+      team: 'customer_engineering'
+      owner: 'naoya@circleci.com'
+      cost_center: 'sm'
+      asset_criticality: false
+      data_classification: 'low'
+      critical_until: '2024-06-30'
+      opt_in: false
+      iac: true
+  
   - type: googlecompute
     image_name: windows-server-2019-vs2019-{{timestamp}}
     image_family: windows-server-2019-vs2019
