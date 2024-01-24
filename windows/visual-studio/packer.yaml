@@ -125,9 +125,10 @@ provisioners:
     source: "windows/ImageHelpers"
     destination: "{{user `helper_script_folder`}}"
 
-  - type: file
-    source: "windows/validation-scripts"
-    destination: "{{user `test_script_folder`}}"
+  # No test run
+  # - type: file
+  #   source: "windows/validation-scripts"
+  #   destination: "{{user `test_script_folder`}}"
 
   - type: file
     source: "windows/shutdown-scripts"
@@ -163,7 +164,8 @@ provisioners:
       - "windows/provision-scripts/enable-ec2launch.ps1"
       - "windows/provision-scripts/enable-cleanup.ps1"
       - "windows/provision-scripts/disable-windows-defender-scanner.ps1"
-      - "windows/validation-scripts/run-pester.ps1"
+      # No test
+      # - "windows/validation-scripts/run-pester.ps1"
 
   - type: file
     source: "C:\\InstalledSoftware.md"
