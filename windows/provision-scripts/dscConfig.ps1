@@ -13,8 +13,6 @@ Configuration CircleBuildHost {
         CircleUsers "users" { }
         CircleBuildAgentPreReq buildAgentPreReq { }
         CircleCloudTools cloudTools { }
-        CircleDevTools devTools { }
-        CircleTDR tdr { }
     }
 }
 
