@@ -136,7 +136,7 @@ provisioners:
     elevated_password: "{{.WinRMPassword}}"
     scripts:
       - "windows/provision-scripts/install-ssh.ps1"
-      # - "windows/provision-scripts/update-pester.ps1"
+      - "windows/provision-scripts/update-pester.ps1"
       - "windows/provision-scripts/enable-ec2launch.ps1"
       - "windows/provision-scripts/enable-cleanup.ps1"
       - "windows/provision-scripts/disable-windows-defender-scanner.ps1"
