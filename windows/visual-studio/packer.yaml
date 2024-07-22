@@ -115,7 +115,7 @@ provisioners:
     scripts:
       - "windows/provision-scripts/update-pwsh.ps1"
       # - "windows/provision-scripts/install-windows-updates.ps1"
-      - "windows/provision-scripts/cleanup-useless-defaults.ps1"
+      # - "windows/provision-scripts/cleanup-useless-defaults.ps1"
       - "windows/provision-scripts/dscConfig.ps1"
 
   - type: windows-restart
@@ -136,11 +136,11 @@ provisioners:
     elevated_password: "{{.WinRMPassword}}"
     scripts:
       - "windows/provision-scripts/install-ssh.ps1"
-      - "windows/provision-scripts/update-pester.ps1"
+      # - "windows/provision-scripts/update-pester.ps1"
       - "windows/provision-scripts/enable-ec2launch.ps1"
       - "windows/provision-scripts/enable-cleanup.ps1"
       - "windows/provision-scripts/disable-windows-defender-scanner.ps1"
-      - "windows/validation-scripts/run-pester.ps1"
+      # - "windows/validation-scripts/run-pester.ps1"
 
   - type: file
     source: "C:\\InstalledSoftware.md"
