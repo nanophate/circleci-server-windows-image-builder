@@ -558,7 +558,7 @@ workflows:
   build_aws_2019:
     jobs:
       - windows_visualstudio_aws_2019:
-          context: CPE_ORBS_AWS
+          context: circleci-server-image-builder
           filters: *filters
 
   build_gcp_2019:
@@ -590,7 +590,7 @@ workflows:
           source_dirs: "windows2022"
           packer_provider: "amazon-ebs"
           branch: test/install-vs-asadmin
-          context: [CPE_ORBS_AWS, SLACK_NOTIFICATIONS_TEST]
+          context: [circleci-server-image-builder, SLACK_NOTIFICATIONS_TEST]
 
   # Uncomment this to run the instance termination cronjob
   # daily:
@@ -598,7 +598,7 @@ workflows:
   #     - gc_old_gce_instances:
   #         context: cpe-gcp
   #     - gc_old_ec2_instances:
-  #         context: CPE_ORBS_AWS
+  #         context: circleci-server-image-builder
   #   triggers:
   #     - schedule:
   #         cron: "17 12 * * *"
