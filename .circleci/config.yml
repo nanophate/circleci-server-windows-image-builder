@@ -87,7 +87,7 @@ library:
 
             ./scripts/get_last_image "${PROVIDER}" "${MONOREPO_CONTENT_SHA}" "${CIRCLE_JOB}" && {
                 echo "${PROVIDER} image with monorepo_content_sha = ${MONOREPO_CONTENT_SHA} and circle_job_name = ${CIRCLE_JOB} already exists. Skipping build"
-              } || packer build \
+              } || PACKER_LOG=1 packer build \
               -machine-readable \
               --only "${PROVIDER}" \
               --var project_id="${GOOGLE_PROJECT_ID}" \
@@ -472,7 +472,7 @@ jobs:
 
             ./scripts/get_last_image << parameters.packer_provider >> "${MONOREPO_CONTENT_SHA}" "${CIRCLE_JOB}" && {
                 echo "<< parameters.packer_provider >> image with monorepo_content_sha = ${MONOREPO_CONTENT_SHA} and circle_job_name = ${CIRCLE_JOB} already exists. Skipping build"
-              } || packer build \
+              } || PACKER_LOG=1 packer build \
               -machine-readable \
               --only << parameters.packer_provider >> \
               --var project_id=${GOOGLE_PROJECT_ID} \
