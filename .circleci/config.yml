@@ -19,7 +19,6 @@ library:
     docker:
       - image: hashicorp/packer:1.4.5
     steps:
-      - setup_remote_docker
       - run:
           name: Determine which platform we use
           command: |
