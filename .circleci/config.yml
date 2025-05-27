@@ -129,6 +129,9 @@ library:
       - store_artifacts:
           path: /tmp/artifacts
 
+      - store_artifacts:
+          path: output/
+
 commands:
   check_source_paths:
     parameters:
@@ -555,6 +558,9 @@ jobs:
       - store_artifacts:
           path: /tmp/artifacts
 
+      - store_artifacts:
+          path: output/
+          
 workflows:
   build_aws_2019:
     jobs:
