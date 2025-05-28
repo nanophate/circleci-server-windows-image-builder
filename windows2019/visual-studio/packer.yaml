@@ -118,7 +118,7 @@ provisioners:
     elevated_user: '{{ user "windows_user" }}'
     elevated_password: "{{.WinRMPassword}}"
     scripts:
-      - "windows2019/scripts/Start-NetworkMonitoring.ps1"
+      - "windows2019/monitoring-scripts/Start-NetworkMonitoring.ps1"
       - "windows2019/provision-scripts/update-pwsh.ps1"
       # win update took more than 5 hour which is the limit for build run
       # - "windows2019/provision-scripts/install-windows-updates.ps1"
@@ -131,7 +131,7 @@ provisioners:
     elevated_user: '{{ user "windows_user" }}'
     elevated_password: "{{.WinRMPassword}}"
     scripts:
-      - "windows2019/scripts/Verify-NetworkMonitoring.ps1"
+      - "windows2019/monitoring-scripts/Verify-NetworkMonitoring.ps1"
       - "windows2019/provision-scripts/dscConfig.ps1"
       # Uncomment below to change the system locale to Japan (CP932)
       # システム ロケールを日本 (CP932) にする場合は下記を有効にしてください
@@ -148,7 +148,7 @@ provisioners:
     # environment_vars:
     #   - DOCKERHUB_REGISTRY_MIRROR={{ user "dockerhub_registry_mirror" }}
     scripts:
-      - "windows2019/scripts/Verify-NetworkMonitoring.ps1"
+      - "windows2019/monitoring-scripts/Verify-NetworkMonitoring.ps1"
       - "windows2019/provision-scripts/install-ssh.ps1"
       - "windows2019/provision-scripts/update-pester.ps1"
       - "windows2019/provision-scripts/enable-ec2launch.ps1"
@@ -165,7 +165,7 @@ provisioners:
     elevated_user: "{{ user `windows_user` }}"
     elevated_password: "{{.WinRMPassword}}"
     scripts:
-      - "windows2019/scripts/Stop-NetworkMonitoring.ps1"
+      - "windows2019/monitoring-scripts/Stop-NetworkMonitoring.ps1"
 
   # Download all analysis results
   - type: "file"
