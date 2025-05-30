@@ -12,6 +12,7 @@ filters: &filters
   branches:
     only: 
     - master
+    - test-on-my-vpc
 
 
 library:
@@ -95,7 +96,7 @@ library:
               --var gce_zone="${GOOGLE_COMPUTE_ZONE}" \
               --var monorepo_content_sha="${MONOREPO_CONTENT_SHA}" \
               --var image_family_suffix="${IMAGE_FAMILY_SUFFIX}" \
-              --var ami_region="us-east-1" \
+              --var ami_region="ap-southeast-1" \
               --var windows_user="${WINDOWS_USER}" \
               --var test_results_path="/tmp/results/test-results.xml" \
               ${SOURCE_IMAGE_VAR} \
@@ -127,6 +128,9 @@ library:
 
       - store_artifacts:
           path: /tmp/artifacts
+
+      - store_artifacts:
+          path: output/
 
 commands:
   check_source_paths:
@@ -479,7 +483,7 @@ jobs:
               --var account_file=/tmp/gce-credentials.json \
               --var monorepo_content_sha="${MONOREPO_CONTENT_SHA}" \
               --var image_family_suffix="${IMAGE_FAMILY_SUFFIX}" \
-              --var ami_region="us-east-1" \
+              --var ami_region="ap-southeast-1" \
               --var windows_user="${WINDOWS_USER}" \
               --var test_results_path="/tmp/results/test-results.xml" \
               --var playbook_file="<< parameters.playbook_file >>" \
@@ -518,7 +522,7 @@ jobs:
             if [[ $CIRCLE_BRANCH == master ]]; then
               if [[ << parameters.packer_provider >> == "amazon-ebs" ]]; then
                 sudo chmod +x ./scripts/copy-ami-to-regions.sh
-                ./scripts/copy-ami-to-regions.sh << parameters.build_if_changed >> ${CIRCLE_JOB} us-east-1
+                ./scripts/copy-ami-to-regions.sh << parameters.build_if_changed >> ${CIRCLE_JOB} ap-southeast-1
               elif [[ << parameters.packer_provider >> == "googlecompute" ]]; then
                 sudo chmod +x ./scripts/copy-gce-to-regions.sh
                 ./scripts/copy-gce-to-regions.sh << parameters.build_if_changed >> ${CIRCLE_JOB}
@@ -554,6 +558,9 @@ jobs:
       - store_artifacts:
           path: /tmp/artifacts
 
+      - store_artifacts:
+          path: output/
+          
 workflows:
   build_aws_2019:
     jobs:
